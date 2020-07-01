@@ -7,9 +7,6 @@ import question3.tp3.PilePleineException;
 public class PileModele<T> extends  java.util.Observable implements PileI<T> {
 
     private PileI<T> pile;
-
-    /* Ã  complÃ©ter */
-
     public PileModele(PileI<T> pile) {
         this.pile = pile;
     }
@@ -21,13 +18,16 @@ public class PileModele<T> extends  java.util.Observable implements PileI<T> {
     }
 
     public T depiler() throws PileVideException {
-        return null;
+        T elementDepile = pile.depiler();
+        setChanged();
+        notifyObservers();
+		
+        return elementDepile;
     }
 
     public T sommet() throws PileVideException {
-        return null;
-    }
-
+        return pile.sommet();
+    }	
     public int taille() {
         return pile.taille();
     }
@@ -50,6 +50,6 @@ public class PileModele<T> extends  java.util.Observable implements PileI<T> {
 }
 
 /**
- * notez qu'un message d'alerte subsiste Ã  la compilation (unsafe ...) dÃ» Ã 
- * l'emploi de notifyObservers, incontournable et sans consÃ©quence ici
+ * notez qu'un message d'alerte subsiste à la compilation (unsafe ...) dû à
+ * l'emploi de notifyObservers, incontournable et sans conséquence ici
  */

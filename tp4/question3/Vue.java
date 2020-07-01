@@ -26,6 +26,7 @@ public class Vue extends JPanel {// à compléter
         add(etatPile);
         setBackground(Color.green);
         // inscription auprès du modèle comme observateur
+        pile.addObserver(this);
     }
 
     public void update(Observable obs, Object arg) {

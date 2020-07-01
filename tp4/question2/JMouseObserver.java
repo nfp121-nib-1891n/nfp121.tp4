@@ -3,7 +3,9 @@ package question2;
 //import java.awt.event.// à compléter
 import java.awt.event.MouseEvent;
 import java.awt.TextArea;
-
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
+import java.awt.Point;
 /**
  * Décrivez votre classe JButtonObserver ici.
  * 
@@ -12,36 +14,37 @@ import java.awt.TextArea;
  */
 public class JMouseObserver { // à compléter
 
-	private String nom;
-	private TextArea contenu;
+    private String nom;
+    private TextArea contenu;
 
-	/**
-	 * Constructeur d'objets de classe JButtonObserver
-	 */
-	public JMouseObserver(String nom, TextArea contenu) {
-		this.nom = nom;
-		this.contenu = contenu;
-	}
+    /**
+     * Constructeur d'objets de classe JButtonObserver
+     */
+    public JMouseObserver(String nom, TextArea contenu) {
+        this.nom = nom;
+        this.contenu = contenu;
+    }
 
-	public void mouseClicked(MouseEvent e) {
-	}
+    public void mouseClicked(MouseEvent e) {
+    }
 
-	/**
-	 * affichage d'un message dans la zone de texte ce message est de la forme
-	 * observateur this.nom : souris entrée en (X,Y) exemple : observateur jmo1
-	 * : souris entrée en (15,20)
-	 * 
-	 * @param
-	 */
-	public void mouseEntered(MouseEvent e) {
-		String message = "";
-		contenu.append(message + "\n");
-	}
+    /**
+     * affichage d'un message dans la zone de texte ce message est de la forme
+     * observateur this.nom : souris entrée en (X,Y) exemple : observateur jmo1
+     * : souris entrée en (15,20)
+     * 
+     * @param
+     */
+    public void mouseEntered(MouseEvent e) {
+        Point p = e.getPoint();
+        String message = "observateur " + nom + " : souris entr�e en (" + p.x + "," + p.y + ")";
+        contenu.append(message + "\n");
+    }
 
-	public void mouseExited(MouseEvent e) {}
+    public void mouseExited(MouseEvent e) {}
 
-	public void mousePressed(MouseEvent e) {}
+    public void mousePressed(MouseEvent e) {}
 
-	public void mouseReleased(MouseEvent e) {}
+    public void mouseReleased(MouseEvent e) {}
 
 }
